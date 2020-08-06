@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>The Gossip Project</title>
+   </head>
+   <body>
+      <div class="container mt-5">
+         <div class="row">
+            <div class="col-3">
+               <div class="card border-success mb-5" style="max-width: 18rem;">
+                  <div class="card-header">
+                     <h4 class="card-text pl-4 small">Potin <%=  @gossips.id %>:</h4>
+                     <p class="h3 card-text pl-4"><%=  @gossips.title  %></p>
+                     <h5 class="card-text small pl-4">Le <%=  @gossips.created_at.strftime("%m.%d.%Y") %></h5>
+                  </div>
+                  <div class="card-body">
+                     <p class="card-text"><%=  @gossips.content %></p>
+                     <p class="text-right"><%= link_to @gossips.user.first_name , profile_path(:id => @gossips.user.id)%></p>
+                  </div>
+                  <div class="card-footer">
+                     <div>
+                        <%= link_to 'Supprimer', gossip_path(@gossips.id), method: "delete", :class => "btn btn-secondary", style:"font-size:smaller" %>
+                        <%= link_to 'Editer', edit_gossip_path, :class => "btn btn-secondary", style:"font-size:smaller"%>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         
+         <div class="col-9">
+            <img class= "rounded-circle img-fluid ml-5 mt-3" alt="profile pic" src="<%= asset_path("bouche2.png") %>" style="height:300px;width:300px">
+         </div>
+         </div>
+
+         <form>
+  <div class="form-group">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-secondary" style="font-size:smaller;" >Commenter</button>
+</form>
+
+
+
+
+      </div>
+   </body>
+</html>
