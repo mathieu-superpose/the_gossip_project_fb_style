@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/login'
-  get 'sessions/method'
+  #get 'cities/show'
   #get 'gossips/show'
   root to:'welcome#show'
 
@@ -10,9 +7,6 @@ Rails.application.routes.draw do
   get 'contact', to: 'contact#show'
   get 'welcome/', to: 'welcome#show'
   get 'welcome/:first_name', to: 'welcome#show'
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  get 'welcome', to: 'sessions#welcome'
   #get 'gossips/:id', to: 'gossip#gossip', as:'gossip'
 
   #get 'profile/:first_name', to: 'profile#profile', as: 'profile'
@@ -20,6 +14,18 @@ Rails.application.routes.draw do
   resources :profile
   resources :gossips
   resources :cities
-  resources :sessions
 
+  resources :gossips do 
+    resources :comments
+  end 
+
+  resources :users
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  resources :gossips do 
+    resources :likes
+  end 
 end

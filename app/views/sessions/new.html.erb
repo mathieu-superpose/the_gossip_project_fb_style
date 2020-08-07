@@ -1,10 +1,19 @@
-<h1>Sign in</h1>
+
+<%= form_with(scope: :session, url: login_path, local: true) do |form| %>
+  <div class="danger">
+    <%= flash[:danger] %>
+  </div>
+
+  <div class="actions">
+    <%= form.label :email %> 
+    <%= form.email_field :email %> 
+
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+
+    <%= form.submit "Log in"%>
+  </div>
+<% end %>
 
 
-   <%= form_tag '/new' do %>
-   <%= label_tag :username%>
-   <%= text_field_tag :username %>
-   <%= label_tag :password%>
-   <%= password_field_tag :password%>
-   <%= submit_tag "New"%>
-<%end%>
+

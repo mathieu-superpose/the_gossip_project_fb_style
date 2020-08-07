@@ -23,6 +23,7 @@ tags = Array.new
 city_list = %w(Paris Marseille Lyon Toulouse Nice Nantes Montpellier Strasbourg Bordeaux Lille Rennes Reims Saint-Etienne Le_Havre Toulon Grenoble Dijon Angers Nimes Villeurbanne)
 postcode_list = %w(75000 13000 69000 31000 06000 44000 34000 67000 33000 59000 35000 51000 42000 76600 83000 38000 21000 49000 30000 69100)
 
+
 for i in (0..9)
   city = City.create(
     name: city_list[i],
